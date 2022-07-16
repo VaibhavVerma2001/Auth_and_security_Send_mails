@@ -1,0 +1,10 @@
+<!-- set not null also otherwise it will always show bec success_msg in globally -->
+<% if(success_msg && success_msg != '') { %>
+    <div class="alert alert-success"><%= success_msg %></div>
+<% } else if(error_msg && error_msg != '') { %>
+    <div class="alert alert-danger"><%= error_msg %></div>
+<% } %>
+
+<% if(error && error != '') { %>
+    <div class="alert alert-danger"><%= error %></div>
+<% } %>
