@@ -6,7 +6,7 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const flash = require("connect-flash");
 const session = require("express-session"); //used in both autentication and flash msg
 require('dotenv').config();
-// to handle forgot password
+// to handle forgot password and send mail
 const nodemailer = require("nodemailer");
 const async = require("async");
 const crypto = require("crypto");
@@ -213,6 +213,7 @@ app.post("/forgot", (req, res) => {
                 to: user.username,
                 from: 'Vaibhav Verma abc@gmail.com',
                 subject: 'Recovery Email from Auth Project',
+                //link send to mail for reset password
                 text: 'Please click the following link to recover your passoword: \n\n' +
                     'http://' + req.headers.host + '/reset/' + token + '\n\n' +
                     'If you did not request this, please ignore this email.'
